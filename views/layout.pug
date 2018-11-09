@@ -1,0 +1,28 @@
+html(lang="en")
+    head
+        link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO", crossorigin="anonymous")
+        script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js", integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy", crossorigin="anonymous")
+        title Wechat | #{title}
+    body
+      nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+       a.navbar-brand(href='#') Wechat API
+       button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarsExampleDefault' aria-controls='navbarsExampleDefault' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+       #navbarsExampleDefault.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+         li.nav-item.active
+          a.nav-link(href='/')
+           | Home 
+           span.sr-only (current)
+         li.nav-item
+          a.nav-link.active(href='/userinfo') Get User Info
+         li.nav-item
+          a.nav-link.active(href='/userlist') Users List
+         li.nav-item 
+          a.nav-link.active(href='/openid') Open ID
+         li.nav-item 
+          a.nav-link.active(href='/sendmessage') Send Message
+      form.form-inline.my-2.my-lg-0
+       input.form-control.mr-sm-2(type='text' placeholder='Search' aria-label='Search')
+       button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+    block content

@@ -1,0 +1,43 @@
+extends userinfo.pug
+
+block content
+ script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+ hr
+ h3 User Information
+ .container
+  table.table
+    tr
+     th Subscribe
+     th Name
+     th Sex
+     th Open ID
+     th City
+     th Province
+     th Country
+     
+    tr
+     td#subscribe
+     td#name
+     td#sex
+     td#openid
+     td#city
+     td#province
+     td#country
+     
+ script.
+   var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200) {
+    var data = JSON.parse(xhttp.responseText);
+    console.log(data);
+    document.getElementById("subscribe").innerHTML = data.subscribe;
+    document.getElementById("sex").innerHTML = data.sex;
+    document.getElementById("name").innerHTML = data.nickname;
+    document.getElementById("openid").innerHTML = data.openid;
+    document.getElementById("city").innerHTML = data.city;
+    document.getElementById("province").innerHTML = data.province;
+    document.getElementById("country").innerHTML = data.country;
+  }
+  };
+  xhttp.open("GET", "/userinfo.json", true);
+  xhttp.send();

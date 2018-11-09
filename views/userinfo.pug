@@ -1,0 +1,10 @@
+extends layout
+
+block content
+ script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+ hr
+ .container
+  form(method="post", action="/userinfo")
+   label Enter Open ID of the user:
+   input.form-control(type="text", name="openid", id="openid" required='')
+   button.btn.btn-outline-success.my-2.my-sm-0(type='submit' value='Submit' ) Submit

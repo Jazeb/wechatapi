@@ -1,0 +1,28 @@
+extends userinfo.pug
+
+block content
+ script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+ hr
+ .container
+  h5 Open IDs of the users: 
+  ul#tid
+     
+ script.
+   var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200) {
+    var response = JSON.parse(xhttp.responseText);
+    //console.log(response);
+
+    var openid = response.data.openid;
+    console.log(openid);
+    var output = '';
+
+    for(var i=0; i<openid.length;i++){
+        output += '<li>'+ openid[i] + '</li>';
+    }
+    document.getElementById("tid").innerHTML = output;
+  }
+  };
+  xhttp.open("GET", "/openid.json", true);
+  xhttp.send();

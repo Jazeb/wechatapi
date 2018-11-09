@@ -1,0 +1,20 @@
+extends userinfo.pug
+
+block content
+ script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+ hr
+ .container
+  h5 Total Users: 
+  h6#user 
+     
+ script.
+   var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200) {
+    var data = JSON.parse(xhttp.responseText);
+    console.log(data);
+    document.getElementById("user").innerHTML = data.total;
+  }
+  };
+  xhttp.open("GET", "/userlist.json", true);
+  xhttp.send();
